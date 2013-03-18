@@ -23,7 +23,7 @@ With the contents of the files:
 	CONFIG/CONN1/APN:
 	  internet
     
-We could grab these values with the following calls:
+We can grab these values with the following calls:
 
 	FSCONFIG_get_config(config, cid, "MODEM", "CID");
 	FSCONFIG_str_concat(conn, "CONN", cid);
