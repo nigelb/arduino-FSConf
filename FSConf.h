@@ -81,11 +81,11 @@ namespace __FSCONFIG_NAMESPACE__
 		__FSCONFIG_NAMESPACE__::size2 = strlen(src2);\
 		__FSCONFIG_NAMESPACE__::size = __FSCONFIG_NAMESPACE__::size1 + __FSCONFIG_NAMESPACE__::size2;\
 		char name[__FSCONFIG_NAMESPACE__::size+1];\
-		for(int i = 0; i < __FSCONFIG_NAMESPACE__::size1; i++)\
+		for(unsigned int i = 0; i < __FSCONFIG_NAMESPACE__::size1; i++)\
 		{\
 			name[i] = src1[i];\
 		}\
-		for(int i = 0; i < __FSCONFIG_NAMESPACE__::size2; i++)\
+		for(unsigned int i = 0; i < __FSCONFIG_NAMESPACE__::size2; i++)\
 		{\
 			name[i + __FSCONFIG_NAMESPACE__::size1] = src2[i];\
 		}\
