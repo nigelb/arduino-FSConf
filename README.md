@@ -8,20 +8,20 @@ on a SD card. For example if we had an FSConfig object like:
 
 And a file structure:
 
-  CONFIG/
-  	CID
-  	CONN1/
-      CONTYPE
-      APN
+	CONFIG/
+	  CID
+	  CONN1/
+	    CONTYPE
+	    APN
       
 With the contents of the files:
 
-  CONFIG/CID:
-    1
-  CONFIG/CONN1/CONTYPE:
-    GPRS    
-  CONFIG/CONN1/APN:
-    internet
+	CONFIG/CID:
+	  1
+	CONFIG/CONN1/CONTYPE:
+	  GPRS    
+	CONFIG/CONN1/APN:
+	  internet
     
 We could grab these values with the following calls:
 
