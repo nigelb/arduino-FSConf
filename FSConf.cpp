@@ -58,6 +58,50 @@ void FSConf::set_debug_stream(Stream* _stream)
 	debug_mode = true;
 }
 
+int FSConf::setValue(String &value, int count, ...)
+{
+	String builder("/");
+	builder.concat(base_path);
+
+	va_list vl;
+	va_start(vl, count);
+	char* val;
+	for (int i = 0; i < count - 1; i++)
+	{
+		val=va_arg(vl, char*);
+		builder.concat("/");
+		builder.concat(val);
+	}
+	val=va_arg(vl, char*);
+	va_end(vl);
+	unsigned int len = builder.length();
+	char result[len+1];
+	result[len] = '\0';
+	for(unsigned int i = 0; i < len; i++)
+	{
+		result[i] = builder[i];
+	}
+	builder.concat("/");
+	builder.concat(val);
+	len = builder.length();
+	char f_result[len+1];
+	f_result[len] = '\0';
+	for(unsigned int i = 0; i < len; i++)
+	{
+		f_result[i] = builder[i];
+	}
+	Serial.println();
+	if(SD.mkdir(result))
+	{
+		File f = SD.open(f_result, FILE_WRITE | O_TRUNC);
+		f.print(value);
+		f.close();
+		return 0;
+	}
+	return 1;
+
+}
+
 int FSConf::getValue(String &value, int count, ...)
 {
 	String builder("/");

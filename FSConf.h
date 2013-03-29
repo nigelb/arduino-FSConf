@@ -48,6 +48,7 @@ class FSConf
 		int begin(int cs_pin);
 		void set_debug_stream(Stream* _stream);
 		int getValue(String &value, int count, ...);
+		int setValue(String &value, int count, ...);
 
 };
 
